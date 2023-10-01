@@ -15,7 +15,7 @@ import { ApplicationState } from '../services/store/models';
 import { COMMON_COLORS } from '@/services/sass/colors';
 import {
 	SET_DISPLAYNAME_BLUR, SET_DISPLAYNAME_FOCUS, SET_EMAIL_BLUR, SET_EMAIL_FOCUS, SET_PASSWORD2_BLUR, SET_PASSWORD2_FOCUS, SET_PASSWORD_BLUR, SET_PASSWORD_FOCUS
-} from '@/consts/reducersConsts';
+} from '@/services/reducers/reducersConsts';
 import ImagePicker from '../common/ImagePicker';
 
 type Props = NativeStackScreenProps<RootStackParamList, RoutesNames.SIGNUP_ROUTE>;

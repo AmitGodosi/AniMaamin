@@ -10,8 +10,10 @@ type Props = {
 
 export default function BackButton({ title, customOnPress }: Props) {
 	const handlePress = () => {
-		customOnPress && customOnPress()
-	}
+		if (customOnPress) {
+			customOnPress();
+		}
+	};
 
 	return (
 		<TouchableOpacity style={styles.container} onPress={handlePress}>

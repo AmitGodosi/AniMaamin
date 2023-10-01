@@ -14,7 +14,7 @@ import { BackendError, incorrectEmail, unfilledInput } from '@/consts/AlertMesse
 import { fetchProfilePicture, insertUserDateils, login } from '@/services/api/Auth';
 import { ANONYMIOUS, UID } from '@/consts';
 import { setUserLoggedIn } from '@/services/store/AuthStore';
-import { SET_EMAIL_BLUR, SET_EMAIL_FOCUS, SET_PASSWORD_BLUR, SET_PASSWORD_FOCUS } from '@/consts/reducersConsts';
+import { SET_EMAIL_BLUR, SET_EMAIL_FOCUS, SET_PASSWORD_BLUR, SET_PASSWORD_FOCUS } from '@/services/reducers/reducersConsts';
 import { COMMON_COLORS } from '@/services/sass/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import ModifiedTouchableOpacity from '@/common/ModifiedTouchableOpacity';

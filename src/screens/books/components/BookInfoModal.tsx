@@ -10,6 +10,9 @@ type Props = {
 }
 
 const BookInfoModal = ({ bookName }: Props) => {
+	const DVARIM_TEXTS = [DVARIM_INFO_1, DVARIM_INFO_2, DVARIM_INFO_3, DVARIM_INFO_4, DVARIM_INFO_5, DVARIM_INFO_6];
+	const THILIM_TEXTS = [THILIM_INFO_1, THILIM_INFO_2, THILIM_INFO_3, THILIM_INFO_4, THILIM_INFO_5, THILIM_INFO_6];
+
 	return (
 		<View style={styles.modal}>
 			<ScrollView
@@ -17,25 +20,9 @@ const BookInfoModal = ({ bookName }: Props) => {
 				scrollIndicatorInsets={{ right: 5, bottom: 5, left: 5, top: 5 }}
 				>
 				<TouchableOpacity>
-					{bookName === 'DVARIM' ? (
-						<>
-							<Text style={styles.text}>{DVARIM_INFO_1}</Text>
-							<Text style={styles.text}>{DVARIM_INFO_2}</Text>
-							<Text style={styles.text}>{DVARIM_INFO_3}</Text>
-							<Text style={styles.text}>{DVARIM_INFO_4}</Text>
-							<Text style={styles.text}>{DVARIM_INFO_5}</Text>
-							<Text style={styles.text}>{DVARIM_INFO_6}</Text>
-						</>
-					) : (
-						<>
-							<Text style={styles.text}>{THILIM_INFO_1}</Text>
-							<Text style={styles.text}>{THILIM_INFO_2}</Text>
-							<Text style={styles.text}>{THILIM_INFO_3}</Text>
-							<Text style={styles.text}>{THILIM_INFO_4}</Text>
-							<Text style={styles.text}>{THILIM_INFO_5}</Text>
-							<Text style={styles.text}>{THILIM_INFO_6}</Text>
-						</>
-					)}
+					{(bookName === 'DVARIM' ? DVARIM_TEXTS : THILIM_TEXTS).map((text) => (
+						<Text key={text?.length} style={styles.text}>{text}</Text>
+					))}
 				</TouchableOpacity>
 			</ScrollView>
 		</View>

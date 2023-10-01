@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native"
 import { Ionicons } from '@expo/vector-icons';
 import { COMMON_COLORS } from "@/services/sass/colors";
