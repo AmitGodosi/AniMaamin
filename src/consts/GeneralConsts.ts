@@ -1,0 +1,13 @@
+export const COLON = ':';
+export const EMPTY_STRING = '';
+//export const SPACE = ' ';
+//export const UNDER_SCORE = '_';
+//export const QUESTION_MARK = '?';
+//export const DOT = '.';
+//export const COMMA = ',';
+//export const ASTERISK = '*';
+//export const AT_SIGN = '@';
+//export const DASH = '--';
+//export const SINGLE_DASH = '-';
+//export const OPEN_PAREN = '(';
+//export const CLOSE_PAREN = ')';

@@ -1,0 +1,8 @@
+export const incorrectEmail = 'הכתובת אימייל שהזנת אינה חוקית, אנא נסה שוב'
+export const unfilledInput = 'אופס, שכחת משהו?'
+export const BackendError = 'אופס, משהו השתבש, נא נסה שנית מאוחר יותר'
+export const unmatchedPasswords = 'הסיסמאות אינן זהות, אנא נסה שנית'
+export const resetPassword = 'נשלח אימייל לאיפוס הסיסמא'
+export const emailNotFound = 'כתובת האיימיל לא נמצאה'
+export const anonymiusUser = 'התחבר בשביל לבצע פעולות'
+export const userNotLoggedIn = 'אופס, משהו השתבש, נסה להתנתק ולהתחבר בשנית'

@@ -1,0 +1,5 @@
+export const DAILY = 'daily'
+export const DISTRIBUTION = 'distribution'
+export const BLESSING = 'blessing'
+export const PROGRESS = 'progress'
+export const FINISHED = 'finished'
