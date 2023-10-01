@@ -6,16 +6,15 @@ import { getFirestore, collection, setDoc, doc, getDoc } from "firebase/firestor
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { UID } from '@/consts';
-import { API_KEY, APP_ID, AUTH_DOMAIN, MEASUREMENT_ID, MESSAGING_SENDER_ID, PROJECT_ID, STORAGE_BUCKET } from '@env';
 
 const firebaseConfig = {
-	apiKey: API_KEY,
-	authDomain: 'havodathashem.firebaseapp.com',
-	projectId: 'havodathashem',
-	storageBucket: 'havodathashem.appspot.com',
-	messagingSenderId: '724085087659',
-	appId: '1:724085087659:web:514b221df263fa2af986ee',
-	measurementId: 'G-0V53K7E8RC',
+	apiKey: process.env.EXPO_PUBLIC_API_KEY,
+	authDomain: process.env.EXPO_PUBLIC_AUTH_DOMAIN,
+	projectId: process.env.EXPO_PUBLIC_PROJECT_ID,
+	storageBucket: process.env.EXPO_PUBLIC_STORAGE_BUCKET,
+	messagingSenderId: process.env.EXPO_PUBLIC_MESSAGING_SENDER_ID,
+	appId: process.env.EXPO_PUBLIC_MEASUREMENT_ID,
+	measurementId: process.env.EXPO_PUBLIC_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig)
