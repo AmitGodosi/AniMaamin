@@ -1,5 +1,5 @@
 # AniMaamin
-**React Native**, Firebase, Flow Manager, State Management, Navigation, Error Handling and more, in process...
+*React Native*, Firebase, Flow Manager, State Management, Navigation, Error Handling and more, in process...
 
 
 ![הרשמה](https://github.com/AmitGodosi/AniMaamin/assets/94754700/ee1fe490-b14f-4e60-a41c-c01d7e501ec6)
