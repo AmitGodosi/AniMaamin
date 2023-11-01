@@ -11,7 +11,7 @@ type Props = {
 }
 
 const HomeScreen = ({ navigation }: Props) => {
-	const userInfo = useSelector((state: ApplicationState) => state.authStore.userInfo)
+	const userInfo = useSelector((state: ApplicationState) => state?.authStore?.userInfo)
 	const dispatch = useDispatch()
 
 	return (

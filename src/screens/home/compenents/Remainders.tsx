@@ -23,8 +23,9 @@ const Remainders = () => {
 
 	const dispatch = useDispatch()
 	const navigation = useNavigation()
-	const isStartToReadBook = useSelector((state: ApplicationState) => state.generalStore.isStartToReadBook)
+	const isStartToReadBook = useSelector((state: ApplicationState) => state?.generalStore?.isStartToReadBook)
 
+	                                                                                                                                
 	const bookPressedHandler = (selectedBook: TSelectedBook) => {
 		dispatch(setSelectedBook({ selectedBook }))
 		navigation.navigate(RoutesNames.PICK_DAYS_ROUTE as never)
@@ -44,8 +45,7 @@ const Remainders = () => {
 		fetchUserRemainder()
 	}, [isStartToReadBook])
 
-	const fetchRemainders = async (dispatch: any) => {
-		const uid = await retrieveUserData()
+	const fetchRemainders = async (uid: string) => {
 		if (!uid) {
 			Alert.alert(BackendError);
 			return;
@@ -72,7 +72,7 @@ const Remainders = () => {
 						<FlatList
 							keyExtractor={(item) => item?.id}
 							data={userRemainders}
-							renderItem={({ item }: any) => <HomeSingleRemainder finishedBook={item} />}
+							renderItem={({ item }: { item: THomeFinishedBook }) => <HomeSingleRemainder finishedBook={item} />}
 						/>
 					</View>
 				)}

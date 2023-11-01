@@ -6,6 +6,9 @@ import { BackendError } from '@/consts/AlertMessegesConsts';
 import { THomeFinishedBook } from '@/screens/home/models';
 import { setIsStartToReadBook } from '../store/GeneralStore';
 import { retrieveUserData } from '@/utils';
+import { DistributionState } from '../store/models';
+import { setInProgressBook } from '../store/DistributionStore';
+import { TFinishedBook } from '@/screens/finished-books/models';
 
 export const fetchRemainders = async (dispatch: any) => {
 	console.log('start fetching')
@@ -27,4 +30,15 @@ export const fetchFinishedBooks = async () => {
 	const finishedBookData = finishedBookRef.data()
 	const finishedBooksValues = Object.values(finishedBookData || {});
 	return finishedBooksValues;
+}
+
+export const fetchInProgressBook = async (distributionState: DistributionState, dispatch: any) => {
+	try {
+		const progressBookRef = doc(db, DISTRIBUTION, `${distributionState?.selectedBook}${PROGRESS}`);
+		const docProgressBookRef = await getDoc(progressBookRef);
+		const docProgressBookRefData = docProgressBookRef.data() as TFinishedBook;
+		Object.keys(docProgressBookRefData || {})?.length > 0 && dispatch(setInProgressBook({ inProgressBook: docProgressBookRefData }))
+	} catch (error) {
+		Alert.alert(BackendError)
+	}
 }

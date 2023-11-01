@@ -1,10 +1,10 @@
 import { BlessingList } from "@/screens/blessing/consts";
-import { TBlessingItemInfo } from "../models";
+import { TBlessing } from "../models";
 import { FlatList, StyleSheet, Text, View } from "react-native"
 import { COMMON_COLORS } from "@/services/sass/colors";
 
 const InfoModal = () => {
-	const RenderBlessing = (item: TBlessingItemInfo) => {
+	const RenderBlessing = (item: { item: TBlessing }) => {
 		const { item: itemData } = item || {}
 		return (
 			<View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 10 }}>
@@ -17,9 +17,9 @@ const InfoModal = () => {
 	return (
 		<View style={styles.modal}>
 			<FlatList
-				data={Object.values(BlessingList)}
-				renderItem={({ item }: any) => <RenderBlessing item={item} />}
-				keyExtractor={(item: any) => item?.id}
+				data={Object.values(BlessingList || {})}
+				renderItem={({ item }: { item: TBlessing }) => <RenderBlessing item={item} />}
+				keyExtractor={item => item?.id}
 			/>
 		</View>
 	)

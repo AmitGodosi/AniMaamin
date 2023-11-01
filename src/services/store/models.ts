@@ -1,4 +1,5 @@
 import { IBessingListData } from "@/screens/blessing/models";
+import { TFinishedBook } from "@/screens/finished-books/models";
 
 export interface ApplicationState {
 	distributionStore: DistributionState;
@@ -10,6 +11,7 @@ export interface ApplicationState {
 export type DistributionState = {
 	selectedBook: string;
 	selectedDays: string[];
+	inProgressBook: TFinishedBook;
 };
 
 export type AuthState = {

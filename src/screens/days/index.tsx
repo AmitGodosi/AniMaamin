@@ -16,6 +16,8 @@ import { db, doc, getDoc, setDoc } from '@/services/firebase';
 import CustomModal from "@/common/Modal";
 import PickDay from "../books/components/PickDay";
 import ConfrmationPickedDaysModal from "../books/components/ConfrmationPickedDaysModal";
+import { useQuery } from "@tanstack/react-query";
+import { fetchInProgressBook } from "@/services/api/General";
 
 const DaysScreen = () => {
 	const [checkedItems, setCheckedItems] = useState<string[]>([]);
@@ -24,31 +26,36 @@ const DaysScreen = () => {
 	const [inProgressBook, setInProgressBook] = useState<Partial<TUserFinishedBook>>();
 	const [isLoading, setIsLoading] = useState(false)
 
-	const distributionState = useSelector((state: ApplicationState) => state.distributionStore)
-	const { displayName } = useSelector((state: ApplicationState) => state.authStore.userInfo)
+	const distributionState = useSelector((state: ApplicationState) => state?.distributionStore)
+	const { displayName } = useSelector((state: ApplicationState) => state?.authStore.userInfo)
 
 	const navigation = useNavigation()
 	const dispatch = useDispatch()
 
 	useLayoutEffect(() => {
 		navigation.setOptions({
-			title: distributionState.selectedBook === SELECTED_BOOKS.DVARIM ? SELECTED_BOOKS_NAMES.DVARIM : SELECTED_BOOKS_NAMES.THILIM
+			title: distributionState?.selectedBook === SELECTED_BOOKS.DVARIM ? SELECTED_BOOKS_NAMES.DVARIM : SELECTED_BOOKS_NAMES.THILIM
 		})
 	}, [])
 
-	useEffect(() => {
-		const fetchInProgressBook = async () => {
-			try {
-				const progressBookRef = doc(db, DISTRIBUTION, `${distributionState.selectedBook}${PROGRESS}`);
-				const docProgressBookRef = await getDoc(progressBookRef);
-				const docProgressBookRefData = docProgressBookRef.data()
-				docProgressBookRefData && setInProgressBook(docProgressBookRefData)		
-			} catch (error) {
-				Alert.alert(BackendError)
-			}
-		}
-		fetchInProgressBook()
-	}, [])
+	const { error, data } = useQuery({
+		queryKey: ['in-progress-book'],
+		queryFn: () => fetchInProgressBook(distributionState, dispatch)
+	})
+
+	//useEffect(() => {
+	//	const fetchInProgressBook = async () => {
+	//		try {
+	//			const progressBookRef = doc(db, DISTRIBUTION, `${distributionState?.selectedBook}${PROGRESS}`);
+	//			const docProgressBookRef = await getDoc(progressBookRef);
+	//			const docProgressBookRefData = docProgressBookRef.data()
+	//			Object.keys(docProgressBookRefData)?.length > 0 && setInProgressBook(docProgressBookRefData)	
+	//		} catch (error) {
+	//			Alert.alert(BackendError)
+	//		}
+	//	}
+	//	fetchInProgressBook()
+	//}, [])
 
 	const handleCheck = (itemId: string) => {
 		const isChecked = checkedItems.includes(itemId);
@@ -71,7 +78,7 @@ const DaysScreen = () => {
 				if (uid) {
 					const today = getDate(new Date())
 					const id = new Date().getTime();
-					const book = distributionState.selectedBook;
+					const book = distributionState?.selectedBook;
 
 					await saveBookToMainDB(uid, today, id, book)
 					await saveBookToUserDB(uid, today, id, book)

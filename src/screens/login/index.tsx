@@ -96,7 +96,7 @@ export default function LoginScreen({ navigation }: Props) {
 				/>
 				<View style={styles.formWrapper}>
 					<Text style={[styles.subtitle, { marginBottom: 30 }]}>התחברות</Text>
-					<View style={[styles.inputContainer, reducerState.isEmailFocused && styles.isFocused]}>
+					<View style={[styles.inputContainer, reducerState?.isEmailFocused && styles.isFocused]}>
 						<TextInput
 							style={styles.input}
 							placeholder="אימייל"
@@ -108,7 +108,7 @@ export default function LoginScreen({ navigation }: Props) {
 						/>
 						<MaterialCommunityIcons style={styles.icon} name="email-outline" size={24} color="black" />
 					</View>
-					<View style={[styles.inputContainer, reducerState.isPasswordFocused && styles.isFocused]}>
+					<View style={[styles.inputContainer, reducerState?.isPasswordFocused && styles.isFocused]}>
 						<TextInput
 							style={styles.input}
 							placeholder="סיסמא"

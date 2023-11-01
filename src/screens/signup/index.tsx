@@ -7,16 +7,16 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { MaterialCommunityIcons, Ionicons, AntDesign } from '@expo/vector-icons';
 import { EMPTY_STRING } from '@/consts/GeneralConsts';
 import { unfilledInput, incorrectEmail, BackendError, unmatchedPasswords } from '@/consts/AlertMessegesConsts';
-import { validateEmail } from '../utils';
+import { validateEmail } from '../../utils';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useSelector } from 'react-redux';
 import { signupReducer, signupReducerInitialState } from '@/services/reducers/signupReducer';
-import { ApplicationState } from '../services/store/models';
+import { ApplicationState } from '../../services/store/models';
 import { COMMON_COLORS } from '@/services/sass/colors';
 import {
 	SET_DISPLAYNAME_BLUR, SET_DISPLAYNAME_FOCUS, SET_EMAIL_BLUR, SET_EMAIL_FOCUS, SET_PASSWORD2_BLUR, SET_PASSWORD2_FOCUS, SET_PASSWORD_BLUR, SET_PASSWORD_FOCUS
 } from '@/services/reducers/reducersConsts';
-import ImagePicker from '../common/ImagePicker';
+import ImagePicker from '../../common/ImagePicker';
 
 type Props = NativeStackScreenProps<RootStackParamList, RoutesNames.SIGNUP_ROUTE>;
 
@@ -27,7 +27,7 @@ export default function SignupScreen({ navigation }: Props) {
 	const [password2, setPassword2] = useState(EMPTY_STRING);
 	const [reducerState, reducerDispatch] = useReducer(signupReducer, signupReducerInitialState);
 
-	const profilePicture = useSelector((state: ApplicationState) => state.generalStore.profilePicture)
+	const profilePicture = useSelector((state: ApplicationState) => state?.generalStore.profilePicture)
 
 	const handleSignup = async () => {
 		try {
@@ -77,7 +77,7 @@ export default function SignupScreen({ navigation }: Props) {
 				/>
 				<View style={styles.formWrapper}>
 					<Text style={[styles.subtitle, { marginBottom: 30 }]}>הרשם עכשיו כדי שנוכל להתחיל !</Text>
-					<View style={[styles.inputContainer, reducerState.isDisplayNameFocused && styles.isFocused]}>
+					<View style={[styles.inputContainer, reducerState?.isDisplayNameFocused && styles.isFocused]}>
 						<TextInput
 							style={styles.input}
 							placeholder="שם מלא"
@@ -88,7 +88,7 @@ export default function SignupScreen({ navigation }: Props) {
 						/>
 						<AntDesign style={styles.icon} name="user" size={24} color="black" />
 					</View>
-					<View style={[styles.inputContainer, reducerState.isEmailFocused && styles.isFocused]}>
+					<View style={[styles.inputContainer, reducerState?.isEmailFocused && styles.isFocused]}>
 						<TextInput
 							style={styles.input}
 							placeholder="אימייל"
@@ -100,7 +100,7 @@ export default function SignupScreen({ navigation }: Props) {
 						/>
 						<MaterialCommunityIcons style={styles.icon} name="email-outline" size={24} color="black" />
 					</View>
-					<View style={[styles.inputContainer, reducerState.isPasswordFocused && styles.isFocused]}>
+					<View style={[styles.inputContainer, reducerState?.isPasswordFocused && styles.isFocused]}>
 						<TextInput
 							style={styles.input}
 							placeholder="סיסמא"
@@ -112,7 +112,7 @@ export default function SignupScreen({ navigation }: Props) {
 						/>
 						<Ionicons style={styles.icon} name="lock-closed-outline" size={24} color="black" />
 					</View>
-					<View style={[styles.inputContainer, reducerState.isPassword2Focused && styles.isFocused]}>
+					<View style={[styles.inputContainer, reducerState?.isPassword2Focused && styles.isFocused]}>
 						<TextInput
 							style={styles.input}
 							placeholder="אימות סיסמא"

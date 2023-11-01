@@ -14,7 +14,6 @@ type Props = {
 
 const HomeSingleRemainder = ({ finishedBook }: Props) => {
 	const [isHomeInfoModalOpen, setIsHomeInfoModalOpen] = useState(false)
-	
 	const dispatch = useDispatch()
 
 	const handleClickedRemainder = () =>{

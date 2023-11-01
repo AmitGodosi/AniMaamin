@@ -9,10 +9,6 @@ export type TBlessing = {
 	nubmerOfClicked?: number;
 }
 
-export type TBlessingItemInfo = {
-	item: TBlessing;
-}
-
 export type TBlessingList = {
 	id?: TBlessing
 }

@@ -10,7 +10,7 @@ import BooksScreen from '@/screens/books';
 import DaysScreen from '@/screens/days';
 import FinishedBooksScreen from '@/screens/finished-books';
 import HundredBlessing from '@/screens/blessing';
-import SignupScreen from '@/screens/SignupScreen';
+import SignupScreen from '@/screens/signup';
 import LoginScreen from '@/screens/login';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
