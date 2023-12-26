@@ -1,4 +1,6 @@
 # AniMaamin
+*React Native*, Firebase, Flow Manager, State Management, Navigation, Error Handling and many more
+
 Goal Tracking:
   Set and track personal spiritual goals.
   Monitor progress with daily, weekly, or monthly check-ins.
@@ -14,7 +16,6 @@ Personal Journal:
   Keep a private journal to reflect on your spiritual journey.
   Access insights from past entries to see your growth over time.
   
-*React Native*, Firebase, Flow Manager, State Management, Navigation, Error Handling and more, in process...
 
 
 ![הרשמה](https://github.com/AmitGodosi/AniMaamin/assets/94754700/ee1fe490-b14f-4e60-a41c-c01d7e501ec6)
