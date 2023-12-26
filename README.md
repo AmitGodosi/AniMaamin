@@ -1,4 +1,19 @@
 # AniMaamin
+Goal Tracking:
+  Set and track personal spiritual goals.
+  Monitor progress with daily, weekly, or monthly check-ins.
+
+Collaborate on reading Tehillim  or Humash Dvarim with others.
+  Join reading groups or start private sessions with friends and family.
+  
+Religious Notifications:
+  Receive timely reminders for prayer times, Shabbat start/end times.
+  Customizable alerts for upcoming fasts or holidays.
+
+Personal Journal:
+  Keep a private journal to reflect on your spiritual journey.
+  Access insights from past entries to see your growth over time.
+  
 *React Native*, Firebase, Flow Manager, State Management, Navigation, Error Handling and more, in process...
 
 
